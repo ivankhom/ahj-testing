@@ -1,0 +1,112 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.page-title {
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.card-widget {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  padding: 20px 24px;
+  min-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Иконки карт — цветные блоки с названием (без внешних картинок) */
+.card-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.card-icon {
+  width: 52px;
+  height: 34px;
+  border-radius: 4px;
+  border: 1.5px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.card-icon--visa       { background: #1a1f71; }
+.card-icon--mastercard { background: #eb001b; }
+.card-icon--amex       { background: #2e77bc; }
+.card-icon--discover   { background: #ff6600; }
+.card-icon--jcb        { background: #003087; }
+.card-icon--diners     { background: #004b87; }
+.card-icon--mir        { background: #00a651; }
+
+.card-icon::after {
+  content: attr(data-type);
+}
+
+.card-icon--inactive { opacity: 0.2; }
+.card-icon--active   { opacity: 1; border-color: #333; box-shadow: 0 0 0 2px rgba(0,0,0,0.15); }
+
+/* Input row */
+.card-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.card-input {
+  flex: 1;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.card-input:focus { border-color: #4caf50; }
+
+.card-btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.card-btn:hover { background: #388e3c; }
+
+/* Result */
+.card-result {
+  min-height: 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+}
+.card-result--valid   { color: #388e3c; }
+.card-result--invalid { color: #c62828; }
