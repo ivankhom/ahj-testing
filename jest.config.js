@@ -1,5 +1,6 @@
 module.exports = {
   testEnvironment: 'jsdom',
+  testPathPattern: 'src',
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
