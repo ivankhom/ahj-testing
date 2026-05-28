@@ -1,6 +1,7 @@
 export function luhnCheck(cardNumber) {
   const digits = cardNumber.replace(/\D/g, '');
   if (digits.length < 13 || digits.length > 19) return false;
+  if (/^0+$/.test(digits)) return false;
 
   let sum = 0;
   let shouldDouble = false;
@@ -19,3 +20,4 @@ export function luhnCheck(cardNumber) {
 
   return sum % 10 === 0;
 }
+
